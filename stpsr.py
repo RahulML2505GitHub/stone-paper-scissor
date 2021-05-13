@@ -1,14 +1,19 @@
 import random as rm
+import os
 
 # Make your game type hear
 a = 'st'
 b = 'p'
 c = 'sr'
 
-with open('I am.txt') as s2:
-    S3 = s2.read()
+logFn = 'score.log'
 
-i = int(f'{S3}')
+if not os.path.exists(logFn):
+    with open(logFn) as lf:
+        lf.write(str(0))
+
+with open(logFn) as s2:
+    i = int(s2.read())
 
 def gameWin(comp, you):
 	if comp==you:
@@ -93,7 +98,7 @@ while (T!=2):
     
     if r=='T':
         i= i+1
-        with open('I am.txt', 'w') as s:
+        with open(logFn, 'w') as s:
             s.write(f'{i}')
     
     
