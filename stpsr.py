@@ -6,13 +6,13 @@ a = 'st'
 b = 'p'
 c = 'sr'
 
-logFn = 'score.log'
+log_file_name = 'score.log'
 
-if not os.path.exists(logFn):
-    with open(logFn) as lf:
+if not os.path.exists(log_file_name):
+    with open(log_file_name, 'w') as lf:
         lf.write(str(0))
 
-with open(logFn) as s2:
+with open(log_file_name) as s2:
     i = int(s2.read())
 
 def gameWin(comp, you):
@@ -98,7 +98,7 @@ while (T!=2):
     
     if r=='T':
         i= i+1
-        with open(logFn, 'w') as s:
+        with open(log_file_name, 'w') as s:
             s.write(f'{i}')
     
     
