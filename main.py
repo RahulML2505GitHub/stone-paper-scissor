@@ -1,4 +1,6 @@
-import random, os
+import random
+import os
+import sys
 
 
 class Game:
@@ -6,10 +8,18 @@ class Game:
     variables = "stone", "paper", "sissor"
 
     def __init__(self, player_1: str, player_2: str = "Computer"):
+        self.get_clean()
         self.name = f"{self.a}, {self.b} & {self.c} Game".capitalize()
         self.players: tuple[str, str] = player_1.capitalize(), player_2.capitalize()
 
         print("Wellcome The simple", self.name + "\n")
+
+    def get_clean(self):
+        if sys.platform == "win32":
+            os.system("cls")
+
+        elif sys.platform == "linux":
+            os.system("clear")
 
     @property
     def a(self):
